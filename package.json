@@ -1,0 +1,47 @@
+{
+  "name": "fxcm-api",
+  "version": "0.1.0",
+  "description": "TypeScript client for the fxcm api",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "/dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run test && npm run build",
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ratheractive/fxcm-api"
+  },
+  "keywords": [
+    "fxcm",
+    "api",
+    "client"
+  ],
+  "author": "Slawomir Biegluk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ratheractive/fxcm-api/issues"
+  },
+  "homepage": "https://github.com/ratheractive/fxcm-api#readme",
+  "dependencies": {
+    "got": "^10.7.0",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-typescript": "^7.9.0",
+    "@types/jest": "^25.1.4",
+    "@types/socket.io-client": "^1.4.32",
+    "babel-jest": "^25.2.4",
+    "dotenv": "^8.2.0",
+    "jest": "^25.2.4",
+    "jest-circus": "^25.2.4",
+    "ts-jest": "^25.3.0",
+    "typescript": "^3.8.3"
+  }
+}
