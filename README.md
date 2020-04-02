@@ -1,2 +1,2 @@
-# This libarary makes using fxcm api from typescript a summer breeze.
+Fxcm Api Client for TypeScript and JavaScript.
 
