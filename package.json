@@ -1,6 +1,6 @@
 {
   "name": "fxcm-api",
-  "version": "0.1.0",
+  "version": "0.1.0-alpha.1",
   "description": "TypeScript client for the fxcm api",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
