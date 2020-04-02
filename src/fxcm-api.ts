@@ -83,12 +83,6 @@ export class FxcmApi {
 
         var req = `candles/${offerId}/${timeUnit}/?from=${fromInt}&to=${toInt}`;
 
-        // req = `candles/${offerId}/${timeUnit}/?num=${count}&from=1483228800&to=1548979200`;
-
-        // console.log(req);
-
-        // req = `candles/${offerId}/${timeUnit}/?num=${count}&from=1498125600&to=1498150800`;
-
         var resp = await this.get(req);
 
         var respCandles: number[][] = resp.candles;
