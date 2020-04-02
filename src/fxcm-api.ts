@@ -75,21 +75,28 @@ export class FxcmApi {
     }
 
     public async getCandles(offerId: number, timeUnit: FxcmTimeUnit, from: Date, to: Date = null): Promise<Candle[]> {
+
+        if (to != null) {
+            const totalDays = Math.floor((to.getTime() - from.getTime()) / (1000 * 3600 * 24));
+
+            if (totalDays > 15) {
+                throw "The requested date range can not be longer then 15 days";
+            }
+        } else {
+            var maxTo = new Date(from.valueOf());
+            maxTo.setDate(maxTo.getDate() + 15);
+            to = maxTo;
+        }
+
         var fromInt = (from.valueOf() / 1000);
-        var maxTo = new Date(from.valueOf());
-        maxTo.setDate(maxTo.getDate() + 15);
 
-        var toInt = ((to ?? maxTo).valueOf() / 1000);
+        var toInt = to.valueOf() / 1000;
 
-        var req = `candles/${offerId}/${timeUnit}/?from=${fromInt}&to=${toInt}`;
-
-        var resp = await this.get(req);
+        var resp = await this.get(`candles/${offerId}/${timeUnit}/?from=${fromInt}&to=${toInt}`);
 
         var respCandles: number[][] = resp.candles;
 
-        var candles = respCandles.map(d => new Candle(d));
-
-        return candles;
+        return respCandles.map(d => new Candle(d));
     }
 
     private async updateSubscriptions(symbol: string, visible: boolean)
