@@ -92,11 +92,19 @@ export class FxcmApi {
 
         var toInt = to.valueOf() / 1000;
 
-        var resp = await this.get(`candles/${offerId}/${timeUnit}/?from=${fromInt}&to=${toInt}`);
+        try {
+            var resp = await this.get(`candles/${offerId}/${timeUnit}/?from=${fromInt}&to=${toInt}`);
 
-        var respCandles: number[][] = resp.candles;
+            var respCandles: number[][] = resp.candles;
 
-        return respCandles.map(d => new Candle(d));
+            return respCandles.map(d => new Candle(d));
+        } catch (e) {
+            if (e === "") {
+                return [];
+            }
+
+            throw e;
+        }
     }
 
     private async updateSubscriptions(symbol: string, visible: boolean)

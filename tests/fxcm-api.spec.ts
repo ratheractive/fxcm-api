@@ -25,6 +25,15 @@ afterAll(() => {
     fxcmApi.disconnect();
 });
 
+test("Get candles from outside available range returns empty results", async () => {
+    var offerId = await getOfferId();
+    var from = new Date("1990-01-01T00:00:00.000Z");
+
+    var candles = await fxcmApi.getCandles(offerId, FxcmTimeUnit.m1, from);
+
+    expect(candles).toHaveLength(0);
+});
+
 test("Instruments, Offers, Subscribe, Unsbscribe work", async () => {
     const testInstrument = instruments.filter(i => !i.visible)[0];
 
