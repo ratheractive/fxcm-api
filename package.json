@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/ratheractive/fxcm-api#readme",
   "dependencies": {
-    "got": "^10.7.0",
+    "got": "^11.8.5",
     "socket.io": "^2.3.0"
   },
   "devDependencies": {
