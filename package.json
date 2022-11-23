@@ -29,7 +29,7 @@
   "homepage": "https://github.com/ratheractive/fxcm-api#readme",
   "dependencies": {
     "got": "^10.7.0",
-    "socket.io": "^2.3.0"
+    "socket.io": "^2.5.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
